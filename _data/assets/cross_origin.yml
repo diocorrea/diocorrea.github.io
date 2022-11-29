@@ -60,3 +60,6 @@ polyfill:
 
 mathjax:
   js: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+
+mermaid:
+  js: https://unpkg.com/mermaid@9.2.2/dist/mermaid.min.js
