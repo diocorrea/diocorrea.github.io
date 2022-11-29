@@ -48,8 +48,7 @@ social:
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/diocorrea
 
-google_site_verification:               # fill in to your verification string
-
+google_site_verification: epa35uM1fQCDnGBI7Gmr297HSemhNZpA94zmuxAcKiw               # fill in to your verification string
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
