@@ -12,7 +12,7 @@ mermaid: true
 
 Let's picture a common scenario where we have a service that manages `Products` and our customer wants to change a property of a given product, let's say its `price`. Several other systems might be interested in the price change information, for instance the *marketing* team could have some triggers configured to send e-mails to certain customers about offers.
 
-To solve that we can use `Kafka` as event buss, so when the price is updated by the *product-service*, it can publish a new event to a kafka topic and then the *marketing-service* can consume it and have the new value for the price of that product.
+To solve that we can use `Kafka` as event bus, so when the price is updated by the *product-service*, it can publish a new event to a kafka topic and then the *marketing-service* can consume it and have the new value for the price of that product.
 
 ```mermaid
     graph LR
@@ -29,19 +29,20 @@ To solve that we can use `Kafka` as event buss, so when the price is updated by 
 
 Ok, but the **product-database** and **price-change-topic** are different external systems from the **product-service**, they are separated by a *network* connection and we have one state that we need to propagate to them and in most of the cases we want to ensure that they agree to with each other, even if not immediately.
 
-``Writing to both using database transaction`` is the first thought that might come to mind, but that can be misleading. There is not shared tranasaction boundary between database and kafka topic but rather there are two. Our product service would need to synchonise between these two systems and perform some form of two-phase commit to keep systems in sync. Lets see scenarios that can happen:
+``Writing to both using database transaction`` is the first thought that might come to mind, but that can be misleading. There is not shared transaction boundary between database and kafka topic but rather there are two. Our product service would need to synchronize between these two systems and perform some form of two-phase commit to keep systems in sync. Lets see scenarios that can happen:
 
 |  | database ✅ | database ❌ |
 | --- | --- | --- |
 |__kafka ✅__| happy path | send rollback event |
 |__kafka ❌__| rollback in DB | noop |
 
- In a  situation where the transaction is rolled back after the communication with Kafka is flushed, you would end up with a *ghost* event on the topic that would need to hadled by sending rollback event. Depending on the publishers configuration it could also happen that the event would stay on the buffer to be send even after the transaction is committed, and in a case of an interruption on the system those events would be lost. 
+ In a  situation where the transaction is rolled back after the communication with Kafka is flushed, you would end up with a *ghost* event on the topic that would need to be handled by sending rollback event. Depending on the publishers configuration it could also happen that the event would stay on the buffer to be send even after the transaction is committed, and in a case of an interruption on the system those events would be lost.
 
 The problem is in delivery guarantees of the data. There are couple options that can happen:
-* most once delivery - best effort but no guarantees for durability. In edge cases some data may be lost. This is common pattern for storing logs
-* exactly once delivery - the data is not duplicated and producer gurantees full synchronisation between kafka and datatbase. This is very hard to achieve.
-* at least once delivery - the data may be duplicated but prodcer guraantees delivery at least once. Usually events are not duplicated but during edge case scenario it can happen (f.e. nettwork partition). This is usual compromise to go, and consumers of data need to compensate. Usually consumers apply deduplication window based on their use-case 
+
+* at most once delivery - best effort but no guarantees for durability. In edge cases some data may be lost. This is common pattern for storing logs.
+* exactly once delivery - the data is not duplicated and producer guarantees full synchronization between kafka and database. This is very hard to achieve.
+* at least once delivery - the data may be duplicated but producer guarantees delivery at least once. Usually events are not duplicated but during edge case scenario it can happen (f.e. network partition). This is usual compromise to go, and consumers of data need to compensate. Usually consumers apply deduplication window based on their use-case.
 
 How can we ensure that the state between the two storage systems is consistent? Meaning, when I have the price stored in the database I'll have it on the topic as well.
 
@@ -96,8 +97,8 @@ The downside of this approach is the eventual increase on the sla of the deliver
 
 tip: If you have multiple nodes of the product-service, you still need to take care of the order of the events.
 
-- One solution is to use a leader election and do the publish on a single node, using the Single Producer Principle. Although if you are in a high throughput that can be a bit problematic and slow your business down.
-- Another solution is to attribute a specific partition or group of partitions to a specific node, than you can select from the database using the partition key and that would still keep the order across the multiple nodes. Down side is a bit of configuration and you would still lock your nodes to the size of partitions and that would make scaling harder.
+* One solution is to use a leader election and do the publish on a single node, using the Single Producer Principle. Although if you are in a high throughput that can be a bit problematic and slow your business down.
+* Another solution is to attribute a specific partition or group of partitions to a specific node, than you can select from the database using the partition key and that would still keep the order across the multiple nodes. Down side is a bit of configuration and you would still lock your nodes to the size of partitions and that would make scaling harder.
 
 ---
 
