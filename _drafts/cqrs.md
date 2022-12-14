@@ -29,7 +29,7 @@ The first thing you should do is identify the different contexts that we we have
   * might want to be able to store draft version of the posts
   * might want to schedule a publish time
 
-> There are scientific ways of find these bounded contexts, you could use for instance an [`Event Storming`](https://www.eventstorming.com/) session. This is not the focus of the post, so let's just assume we have this clear division. Yes, I'm talking about `DDD`, and often that is a good approach when you are growing the application.
+> There are scientific ways of find these bounded contexts, you could use for instance an [`Event Storming`](https://www.eventstorming.com/) session. This is not the focus of the post, so let's just assume we have this clear division. Yes, I'm talking about `DDD`, and often that is a good approach when you are growing the application. There are more links on the references.
 {: .prompt-tip }
 
 
@@ -57,7 +57,7 @@ Event sourcing is a great way to implement `CQRS`, by publishing the events with
 
 By using this approach there is a clear reduction on coupling, since the source of truth of `Article` entity doesn't know anymore who is using it and how is being used. Also, the single point of failure `SPOF` was removed, now if the writer part of the application is down, readers will not notice it, and the other way around as well. Depending on how we implement the topic, let's say if we use a `compacted kafka topic` we can always bring new applications to life and have the whole replication of the database available to them. 
 
-A very important aspect of this approach is that now that we completely separated the concerns, we can have independent teams working on the different bounded contexts, without the need to interact constantly to each other. This is often neglected as an advantage, but IMHO when a company is looking to scale productivity and paralyze work streams this is the way to go. 
+A very important aspect of this approach is that now that we completely separated the concerns, we can have independent teams working on the different `bounded contexts`, without the need to interact constantly to each other. This is often neglected as an advantage, but IMHO when a company is looking to scale productivity and paralyze work streams this is the way to go. 
 
 > There ain't no such thing as a free lunch
 {: .prompt-warning }
@@ -78,3 +78,4 @@ What do you think? Is it something that would help your application to scale? Le
 ## References
  - [Martin Fowler - CQRS](https://martinfowler.com/bliki/CQRS.html)
  - [Confluent - Event sourcing](https://developer.confluent.io/learn-kafka/event-sourcing/cqrs/)
+ - [Alberto Brandolini - About Team Topologies and Context Mapping](https://blog.avanscoperta.it/2021/04/22/about-team-topologies-and-context-mapping/)
