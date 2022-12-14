@@ -71,3 +71,10 @@ So after all this considerations would you say it is worth it to implement this 
 ## Conclusion
 
 `CQRS` is a technique to segregate the commands from the query it can be implemented in many different ways, but the main idea is that you can freely evolve your use cases and optimize them independently. How you would implement it depends a lot on the volume of requests your application has, but it is definitely a very powerful tool to scale your application.
+
+What do you think? Is it something that would help your application to scale? Let me know!
+
+
+## References
+ - [Martin Fowler - CQRS](https://martinfowler.com/bliki/CQRS.html)
+ - [Confluent - Event sourcing](https://developer.confluent.io/learn-kafka/event-sourcing/cqrs/)
