@@ -1,42 +1,30 @@
-# Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+# Dio's personal blog [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+# About this blog
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders `_includes`, `_layout`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file from the theme's gem. If you have ever installed this theme gem, you can use the command `bundle info --path jekyll-theme-chirpy` to locate these files.
+I started this blog to document and share my thoughts and past experiences. It will contain certain situations I faced in the past, problems I solved, consequences of the decisions I took, but also some other theoretical problems that I am interested in learning more about and want to share what I've researched. The language I'm going to use will be always very informal and trying to use as many images and analogies as I can, to make it easy to everybody understand. Together with this blog there is also a [GitHub](https://github.com/diocorrea) account where I will be creating several projects to exemplify with concrete implementations, to really make it visible some of the concepts I'll be talking about.
 
-The Jekyll organization claims that this is to leave the ball in the user’s court, but this also results in users not being able to enjoy the out-of-the-box experience when using feature-rich themes.
+There are always many ways to solve problems and nobody has to agree with my way of thinking. Not just that, I would really love to have a discussion and learn different points of view, this is what excites me more about this career! Saying that, I also don't intend to be right all the time, but just open this forum to share my point of view, that can pretty much change at any point.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your Jekyll site. The following is a list of targets:
-
-```shell
-.
-├── _config.yml
-├── _data
-├── _plugins
-├── _tabs
-└── index.html
-```
-
-In order to save your time, and to prevent you from missing some files when copying, we extract those files/configurations of the latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
-
-## Prerequisites
-
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll` and `Bundler`.
-
-## Installation
-
-[**Use this template**][use-template] to generate a brand new repository and name it `<GH_USERNAME>.github.io`, where `GH_USERNAME` represents your GitHub username.
-
-Then clone it to your local machine and run:
-
-```
-$ bundle
-```
+Lastly, if you have any topic ideas that you think I should cover please reach out to me in any of my contacts.
+<p align="left">
+<a href="https://twitter.com/dio_correa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="@dio_correa" height="40" width="40" /></a>
+<a href="https://linkedin.com/in/diocorrea" target="blank"><img align="center" src="https://avatars.githubusercontent.com/u/357098?s=200&v=4" alt="diocorrea" height="40" width="40" /></a>
+</p>
 
 ## Usage
 
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
+To run locally you will need to run the set of commands bellow. More documentation can be found on the theme page ([chirpy]) and also at [Jekyll]'s  main page.
+
+```
+$ gem install bundler
+$ bundle install
+$ bundle exec jekyll s
+```
 
 ## License
 
+The theme used is [**Chirpy**][chirpy] through Jekyll [RubyGems.org][gem].  
+Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).  
 This work is published under [MIT][mit] License.
 
 [gem]: https://rubygems.org/gems/jekyll-theme-chirpy
@@ -44,3 +32,4 @@ This work is published under [MIT][mit] License.
 [use-template]: https://github.com/cotes2020/chirpy-starter/generate
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+[jekyll]: https://jekyllrb.com/
