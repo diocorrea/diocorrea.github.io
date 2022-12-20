@@ -1,7 +1,6 @@
 ---
 layout: post
 title: The outbox pattern
-categories: [patterns]
 tags: [event-driven-architecture,architecture,dual-write,kafka,eventual-consistency,outbox,outbox-pattern,outbox-table-pattern,two-phase-commit]
 mermaid: true
 ---
