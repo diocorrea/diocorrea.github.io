@@ -24,7 +24,7 @@ title: Dio                          # the main title
 tagline: Principal Engineer   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Personal Blog
+  I started this blog to document and share my thoughts and past experiences. It will contain certain situations I faced in the past, problems I solved, consequences of the decisions I took, but also some other theoretical problems that I am interested in learning more about and want to share what I've researched.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://blog.diocorrea.com'
@@ -190,7 +190,7 @@ exclude:
   - package*.json
 
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled: [tags]
   layouts:
     category: category
     tag: tag

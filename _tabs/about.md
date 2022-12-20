@@ -1,9 +1,9 @@
 ---
 # the default layout is 'page'
+title: About this blog
 icon: fas fa-info-circle
 order: 4
 ---
-# About this blog
 
 I started this blog to document and share my thoughts and past experiences. It will contain certain situations I faced in the past, problems I solved, consequences of the decisions I took, but also some other theoretical problems that I am interested in learning more about and want to share what I've researched. The language I'm going to use will be always very informal and trying to use as many images and analogies as I can, to make it easy to everybody understand. Together with this blog there is also a [GitHub](https://github.com/diocorrea) account where I will be creating several projects to exemplify with concrete implementations, to really make it visible some of the concepts I'll be talking about.
 
