@@ -1,5 +1,6 @@
 ---
 # the default layout is 'page'
+title: About this blog
 icon: fas fa-info-circle
 order: 4
 ---
