@@ -24,7 +24,7 @@ title: Dio                          # the main title
 tagline: Principal Engineer   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Personal Blog
+  This is my personal blog, its a compilation of patterns, architecture decisions, problems I faced and of course what did I do to solve them and the consequences. Also, I'm putting together a GitHub account with live examples of some of those choices, because sometimes is hard to materialize the idea without seeing it. There are always many ways to solve the issues, and nobody has to agree with me, but I would always appreciate a good discussion, learning and getting different points of view is what I love more about this career!
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://blog.diocorrea.com'
